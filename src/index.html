@@ -8,8 +8,21 @@
   </head>
   <body>
     <div class="console"></div>
+    <dialog id="myDialog">
+      <div>
+        <form method="dialog">
+          <button id="start_experience">Start Experience</button>
+        </form>
+      </div>
+    </dialog>
     <canvas class="webgl"></canvas>
     <script type="module" src="./script.js"></script>
+
+    <script>
+      const dialog = document.getElementById("myDialog");
+      const openButton = document.getElementById("openDialog");
+
+      dialog.showModal();
+    </script>
   </body>
 </html>
-

@@ -10,14 +10,9 @@ export default class Camera {
     this.sizes = this.experience.sizes;
     this.scene = this.experience.scene;
     this.canvas = this.experience.canvas;
-
-    // console.log("camera")
-
     console.log(DeviceOrientationControls);
 
     this.setInstance();
-    // this.setOrbitControls();
-    this.setDeviceOrientationControls();
   }
 
   setInstance() {
@@ -54,6 +49,11 @@ export default class Camera {
     console.log("controls", this.controls);
   }
 
+  init() {
+    console.log("setting device controls");
+    this.setDeviceOrientationControls();
+  }
+
   resize() {
     // console.log("DEBUG: Resizing Camera")
 
@@ -62,10 +62,8 @@ export default class Camera {
   }
 
   update() {
-    console.log("updateing");
-
-    this.controls.update();
-    // console.log("DEBUG: Updating Camera")
-    // this.controls.update();
+    if (this.controls) {
+      this.controls.update();
+    }
   }
 }

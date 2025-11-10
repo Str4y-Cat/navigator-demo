@@ -24,3 +24,29 @@ body {
   margin: 15px;
   z-index: 20;
 }
+
+dialog {
+  margin: auto auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+dialog::backdrop {
+  background-color: white;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+dialog > div {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    padding: 9px 15px;
+  }
+}

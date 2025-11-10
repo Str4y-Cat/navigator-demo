@@ -35,6 +35,7 @@ export default class Experience {
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
     this.camera = new Camera();
+    this.init();
     this.renderer = new Renderer();
     this.world = new World();
     //sizes resize event
@@ -52,6 +53,14 @@ export default class Experience {
     // console.log("resizing")
     this.camera.resize();
     this.renderer.resize();
+  }
+
+  init() {
+    const start = document.querySelector("#start_experience");
+    console.log(start);
+    start.addEventListener("click", () => {
+      this.camera.init();
+    });
   }
 
   update() {
