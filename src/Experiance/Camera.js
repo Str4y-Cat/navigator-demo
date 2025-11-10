@@ -49,7 +49,9 @@ export default class Camera {
 
   setDeviceOrientationControls() {
     console.log("setting oriendtation controls");
+
     this.controls = new DeviceOrientationControls(this.instance);
+    console.log("controls", this.controls);
   }
 
   resize() {
@@ -61,6 +63,7 @@ export default class Camera {
 
   update() {
     console.log("updateing");
+
     this.controls.update();
     // console.log("DEBUG: Updating Camera")
     // this.controls.update();

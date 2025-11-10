@@ -47,6 +47,7 @@ class DeviceOrientationControls extends EventDispatcher {
 
     const onScreenOrientationChangeEvent = function () {
       scope.screenOrientation = window.orientation || 0;
+      log(`orientation ${window.orientation}`);
       // scope.screenOrientation = window.screen.orientation || 0;
       // console.log("window screen orientation", window.screen.orientation.angle);
       // console.log("window  orientation", window.orientation);
@@ -95,6 +96,7 @@ class DeviceOrientationControls extends EventDispatcher {
             }
           })
           .catch(function (error) {
+            log("Permission failed");
             console.alert(
               "THREE.DeviceOrientationControls: Unable to use DeviceOrientation API:",
               error,
