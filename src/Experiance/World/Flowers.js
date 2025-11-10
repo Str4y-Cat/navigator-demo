@@ -62,9 +62,11 @@ export default class Flowers {
 
     let dummy = this.resource.scene.children[0];
 
+    console.log(dummy);
+
     let mesh = new THREE.InstancedMesh(
       dummy.geometry,
-      dummy.material,
+      this.material,
       this.values.starCount,
     );
 
@@ -117,9 +119,7 @@ export default class Flowers {
   }
 
   setMaterial() {
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("orange"),
-    });
+    const material = new THREE.MeshStandardMaterial({});
     this.material = material;
   }
 
