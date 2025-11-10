@@ -1,4 +1,5 @@
 import * as THREE from "three";
+// import * as THREE from "../build/three.module.js";
 import Experience from "./Experiance";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { DeviceOrientationControls } from "./Utils/DeviceOrientationControls";
@@ -47,6 +48,7 @@ export default class Camera {
   }
 
   setDeviceOrientationControls() {
+    console.log("setting oriendtation controls");
     this.controls = new DeviceOrientationControls(this.instance);
   }
 
