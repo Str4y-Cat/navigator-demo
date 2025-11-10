@@ -117,7 +117,7 @@ export default class Flowers {
   }
 
   setMaterial() {
-    const material = new THREE.MeshToonMaterial({});
+    const material = new THREE.MeshBasicMaterial({});
     this.material = material;
   }
 
