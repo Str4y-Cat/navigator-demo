@@ -14,8 +14,9 @@ export default class Environment {
       this.debugFolder = this.debug.ui.addFolder("Environment");
     }
 
-    this.setSunLight();
+    // this.setSunLight();
     this.setAmbientLight();
+    this.setPointLight();
     // this.setEnvironmentMap()
   }
 
@@ -61,8 +62,8 @@ export default class Environment {
   }
 
   setPointLight() {
-    this.pointLight = new THREE.PointLight(0xff0000, 1, 100);
-    this.sunLight.castShadow = true;
+    this.pointLight = new THREE.PointLight(0xff0000, 2, 100);
+    this.pointLight.castShadow = true;
     this.pointLight.shadow.camera.far = 15;
     this.pointLight.shadow.mapSize.set(1024, 1024);
     this.pointLight.shadow.normalBias = 0.05;
@@ -71,7 +72,7 @@ export default class Environment {
   }
 
   setAmbientLight() {
-    this.ambientLight = new THREE.AmbientLight(0x404040, 5);
+    this.ambientLight = new THREE.AmbientLight(0x404040, 0.2);
     this.scene.add(this.ambientLight);
   }
 

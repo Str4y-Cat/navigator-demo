@@ -13,10 +13,10 @@ export default class Flowers {
 
     //Setup
     this.resource = this.resources.items.flowerModel;
+    this.setMaterial();
     this.setModel();
 
     // this.setGeometry();
-    // this.setMaterial();
 
     // this.setMeshes();
   }
@@ -70,8 +70,6 @@ export default class Flowers {
       this.values.starCount,
     );
 
-    const offset = 5000;
-
     this.sphericalCoords.forEach((coord, i) => {
       dummy.position.set(coord.x, coord.y, coord.z);
 
@@ -119,7 +117,7 @@ export default class Flowers {
   }
 
   setMaterial() {
-    const material = new THREE.MeshStandardMaterial({});
+    const material = new THREE.MeshToonMaterial({});
     this.material = material;
   }
 
