@@ -7,6 +7,12 @@ const _q1 = new Quaternion(-Math.sqrt(0.5), 0, 0, Math.sqrt(0.5)); // - PI/2 aro
 
 const _changeEvent = { type: "change" };
 
+const _scratchpad = document.querySelector(".console");
+
+function log(value) {
+  _scratchpad.innerHTML = `${_scratchpad.innerHTML}\n${value}`;
+}
+
 class DeviceOrientationControls extends EventDispatcher {
   constructor(object) {
     super();
@@ -90,6 +96,7 @@ class DeviceOrientationControls extends EventDispatcher {
             );
           });
       } else {
+        log("No orientation event");
         window.addEventListener(
           "orientationchange",
           onScreenOrientationChangeEvent,
