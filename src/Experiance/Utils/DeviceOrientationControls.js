@@ -76,6 +76,7 @@ class DeviceOrientationControls extends EventDispatcher {
         window.DeviceOrientationEvent !== undefined &&
         typeof window.DeviceOrientationEvent.requestPermission === "function"
       ) {
+        log("Orientation event found");
         window.DeviceOrientationEvent.requestPermission()
           .then(function (response) {
             if (response == "granted") {
