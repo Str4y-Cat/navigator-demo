@@ -47,10 +47,7 @@ export default class Camera {
   }
 
   setDeviceOrientationControls() {
-    this.controls = new DeviceOrientationControls(this.instance, this.canvas);
-    this.controls.enableDamping = true;
-    const target = new THREE.Vector3(0, 0, 2);
-    this.controls.target = target;
+    this.controls = new DeviceOrientationControls(this.instance);
   }
 
   resize() {
