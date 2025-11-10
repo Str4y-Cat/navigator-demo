@@ -34,41 +34,20 @@ export default class Flowers {
 
   setModel() {
     this.model = this.resource.scene;
-    // this.model.scale.set(0.02, 0.02, 0.02);
-    // this.scene.add(this.model);
 
-    // this.model.traverse((child) => {
-    //   if (child instanceof THREE.Mesh) {
-    //     console.log(child);
-    //     child.castShadow = true;
-    //     console.log(child.castShadow);
-    //   }
-    // });
-    // this.model_array = [];
-    // this.sphericalCoords.forEach((coord) => {
-    //   // mesh.position.set(coord.x, coord.y, coord.z);
-    //
-    //   mesh.position.x = coord.x;
-    //   mesh.position.y = coord.y;
-    //   mesh.position.z = coord.z;
-    //
-    //   this.scene.add(mesh);
-    //   console.log("adding mesh at point : ", coord, mesh);
-    //   this.mesh_array.push(mesh);
-    //
-    //
-    // });
-    //
+    this.resource.scene.children[0].material = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+    });
 
     let dummy = this.resource.scene.children[0];
 
-    console.log(dummy);
-
     let mesh = new THREE.InstancedMesh(
       dummy.geometry,
-      this.material,
+      dummy.material,
       this.values.starCount,
     );
+    // mesh.castShadow = true;
+    // console.log(mesh);
 
     this.sphericalCoords.forEach((coord, i) => {
       dummy.position.set(coord.x, coord.y, coord.z);
@@ -90,6 +69,7 @@ export default class Flowers {
         new THREE.Color(`hsl(${Math.random() * 360}, 50%, 66%)`),
       );
     });
+    mesh.instanceColor.needsUpdate = true;
 
     this.scene.add(mesh);
   }
@@ -117,7 +97,8 @@ export default class Flowers {
   }
 
   setMaterial() {
-    const material = new THREE.MeshBasicMaterial({});
+    // const material = new THREE.MeshBasicMaterial({});
+    const material = new THREE.MeshStandardMaterial({});
     this.material = material;
   }
 

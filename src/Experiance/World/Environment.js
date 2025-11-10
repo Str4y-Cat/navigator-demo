@@ -62,7 +62,7 @@ export default class Environment {
   }
 
   setPointLight() {
-    this.pointLight = new THREE.PointLight(0xff0000, 2, 100);
+    this.pointLight = new THREE.PointLight(0xffffff, 2, 100);
     this.pointLight.castShadow = true;
     this.pointLight.shadow.camera.far = 15;
     this.pointLight.shadow.mapSize.set(1024, 1024);
