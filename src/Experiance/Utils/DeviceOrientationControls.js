@@ -12,6 +12,9 @@ const _scratchpad = document.querySelector(".console");
 function log(value) {
   _scratchpad.innerHTML = `${_scratchpad.innerHTML}\n${value}`;
 }
+function clear(log) {
+  _scratchpad.innerHTML = "";
+}
 
 class DeviceOrientationControls extends EventDispatcher {
   constructor(object) {
@@ -80,6 +83,7 @@ class DeviceOrientationControls extends EventDispatcher {
         window.DeviceOrientationEvent.requestPermission()
           .then(function (response) {
             if (response == "granted") {
+              log("Permission granted");
               window.addEventListener(
                 "orientationchange",
                 onScreenOrientationChangeEvent,
@@ -125,7 +129,10 @@ class DeviceOrientationControls extends EventDispatcher {
     };
 
     this.update = function () {
-      if (scope.enabled === false) return;
+      if (scope.enabled === false) {
+        log("update failed");
+        return;
+      }
 
       const device = scope.deviceOrientation;
 
