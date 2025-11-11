@@ -118,10 +118,10 @@ export default class Environment {
     // Make the box large enough to contain the flower sphere (radius ~50)
     // At least 2x the flower radius to ensure flowers aren't inside the walls
     const geometry = new THREE.BoxGeometry(200, 200, 200);
+    geometry.scale(-1, 1, 1);
 
     const material = new THREE.MeshBasicMaterial({
       map: this.paperTexture,
-      side: THREE.DoubleSide,
     });
 
     const mesh = new THREE.Mesh(geometry, material);
