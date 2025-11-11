@@ -18,6 +18,10 @@ export default class Environment {
     this.setAmbientLight();
     this.setPointLight();
     // this.setEnvironmentMap()
+    this.resources.on("ready", () => {
+      this.paperTexture = this.resources.items.paperTexture;
+      this.setBackground();
+    });
   }
 
   setSunLight() {
@@ -108,5 +112,19 @@ export default class Environment {
         .step(0.001)
         .onChange(this.environmentMap.updateMaterial());
     }
+  }
+
+  setBackground() {
+    const geometry = new THREE.BoxGeometry(500, 60, 40);
+
+    const material = new THREE.MeshBasicMaterial({
+      map: this.paperTexture,
+      side: THREE.BackSide,
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    this.scene.add(mesh);
+
+    console.log("background added");
   }
 }
