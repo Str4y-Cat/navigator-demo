@@ -121,7 +121,7 @@ export default class Environment {
 
     const material = new THREE.MeshBasicMaterial({
       map: this.paperTexture,
-      side: THREE.BackSide,
+      side: THREE.DoubleSide,
     });
 
     const mesh = new THREE.Mesh(geometry, material);
