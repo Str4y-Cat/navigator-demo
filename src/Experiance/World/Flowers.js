@@ -90,6 +90,7 @@ export default class Flowers {
   setGeometry() {
     this.geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
   }
+
   createGeometry() {
     const size = this.randomSize(0.4, 0.7);
     console.log(size);
