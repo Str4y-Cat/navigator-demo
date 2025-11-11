@@ -20,7 +20,7 @@ export default class Environment {
     // this.setEnvironmentMap()
     this.resources.on("ready", () => {
       this.paperTexture = this.resources.items.paperTexture;
-      this.setBackground();
+      // this.setBackground();
     });
   }
 
